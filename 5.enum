@@ -1,0 +1,75 @@
+enum Day { //enum declaration 
+MON("Monday",1) //constructor 
+{ 
+public String diet() 
+{ 
+return "Veg food is allowed"; 
+} 
+}, 
+TUE("Tuesday",2) 
+{ 
+public String diet() 
+{ 
+return " Non-veg food is allowed"; 
+} 
+}, 
+WED("Wednesday",3) 
+{ 
+public String diet() 
+{ 
+return " Be a vegan";
+} 
+}, 
+THU("Thursday",4) 
+{ 
+public String diet() 
+{ 
+return " Fasting today"; 
+} 
+}, 
+FRI("Friday",5) 
+{ 
+public String diet() 
+{ 
+return " Non-veg food is allowed"; } 
+}, 
+SAT("Saturday",6) 
+{ 
+public String diet() 
+{ 
+return " Veg food is allowed"; } 
+}, 
+SUN("Sunday",7) 
+{ 
+public String diet() 
+{
+return " Indulge in food of your choice"; 
+} 
+}; 
+String name; 
+int number; 
+Day(String name,int number) //parameterized constructor { 
+this.name=name; 
+this.number=number; 
+} 
+public String getname() 
+{ 
+return name; 
+} 
+public int getnumber() 
+{ 
+return number; 
+} 
+public abstract String diet(); 
+} 
+public class Enum 
+{ 
+public static void main(String[]args) 
+{ 
+Day [] d =Day.values(); 
+for(Day d1 : d) 
+{
+System.out.println(d1.number + " : " + d1.name+ " " +d1.diet()); 
+} 
+} 
+} 

@@ -1,0 +1,32 @@
+class fruits //Original class 
+{ 
+public void mango() 
+{ 
+System.out.println("sweet"); 
+} 
+public void kiwi() 
+System.out.println("Sour"); 
+{ 
+} 
+} 
+public class Taste{ //Outer class 
+public static void main(String[] args) 
+{ 
+fruits f = new fruits() //nested class as Anonymous class 
+{ 
+public void mango() 
+{ 
+System.out.println("This mango is not sweet"); //overrriding 
+} 
+public void kiwi() 
+{ 
+System.out.println("This is not sour"); //overriding 
+} 
+}; //Anonymous class ends here, A semi-colon is necessary to end the statement. 
+f.mango(); 
+f.kiwi(); 
+fruits f1 = new fruits(); 
+f1.mango(); 
+f1.kiwi0); 
+} 
+} 

@@ -1,0 +1,21 @@
+import java.util.ArrayList; 
+import java.util.List; 
+public class ListDemo{ 
+public static void main(String [] args){ 
+ArrayList<String> friends = new ArrayList<>(); 
+friends.add("Aartfa"); 
+friends.add("Johanna"); 
+friends.add("Gracy"); 
+friends.add("Ross"); 
+friends.add("Catherine"); 
+System.out.println("Is Rachel in the list of friends ? : "+friends.contains("Rachel")); System.out.println(friends); 
+friends.remove("Ross"); 
+System.out.print(friends); 
+friends.remove(2); 
+System.out.print(friends); 
+friends.add(3,"Keith"); 
+System.out.print(friends); 
+friends.add(3,"Bryan"); 
+System.out.print(friends); 
+} 
+} 

@@ -3,8 +3,8 @@ class Employee
 String fname; 
 String Iname; 
 int id; 
-Employee(String fname, String Iname, int id) //Constructor {this.fname=fname; //"this" represents the current obj this.Iname=lname; 
-this.id=id; 
+Employee(String fname, String Iname, int id)//Constructor {this.fname=fname; //"this" represents the current obj this.Iname=lname; 
+{this.id=id; 
 } 
 // Public String toString() 
 { 
@@ -14,7 +14,7 @@ public int hashCode()
 { 
 return id; 
 } 
-} 
+}
 class Test 
 {public static void main(String[] args) 
 {Employee e1=new Employee("Peter", "Parkar",101); 

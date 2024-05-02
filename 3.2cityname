@@ -1,0 +1,54 @@
+class Address 
+{ 
+private String city; 
+private String pincode; 
+public Address(String city,String pincode){ this.city=city; 
+this.pincode-pincode; 
+} 
+public String getcity() 
+{return city; 
+} 
+public String getpincode() 
+{return pincode; 
+} 
+public void setcity(String city){ 
+this.city=city; } 
+public void setpincode(String pincode){ 
+this.pincode-pincode;} 
+@Override 
+public String toString(){ 
+return "Address [city="+ city + ", pincode = "+pincode +"]"; 
+} 
+} 
+final class Person{ 
+private final String firstname; 
+private final String lastname; 
+private Address address; 
+public Person (String firstname,String lastname, Address address) { 
+this.firstname=firstname; 
+this.lastname=lastname; 
+//this.address=address; 
+} 
+this.address=new Address(address.getcity(),address.getpincode()); 
+public String getfirstname(){ 
+} 
+return firstname; 
+public String getlastname(){ 
+return lastname; 
+} 
+public Address getAddress(){ 
+return address; 
+//return new Address(address.getcity(),address.getpincode()); 
+} 
+@Override 
+public String toString(){ 
+return "Person [firstname=" +firstname +", lastname = " + lastname +", address=" +address+"]"; 
+} 
+} 
+public class Personclient33 { 
+public static void main(String[] args) { 
+Address address=new Address("Bangalore", "411038"); Person p1=new Person("sachin", "Paranjape", address); System.out.println(p1); 
+p1.getAddress().setcity("Pune"); 
+System.out.println(p1); //still the same p1 
+} 
+} 

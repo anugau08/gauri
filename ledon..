@@ -1,0 +1,59 @@
+Pattern 1: LED On/Off 
+#include<reg51.h> 
+#include"delay.c" 
+void main() 
+{ 
+while(1) 
+{ 
+P0=0xFF; 
+delay(50000); 
+P0=0x00; 
+delay(50000); 
+} 
+}Pattern 2: Alternate Blinking 
+#include<reg51.h> 
+#include"delay.c" 
+void main() 
+{ while(1) { 
+P0=0x01; 
+delay(50000); 
+P0=0x02; 
+delay(50000); 
+}}
+Pattern 3: Upper nibble/lower nibble
+#include<reg51.h>
+#include"delay.c"
+void main()
+{
+while(1)
+{ P0=0xF0;
+delay(50000);
+P0=0x0F;
+delay(50000);
+}
+}
+Pattern 4: Rotate Single bit from left to right
+#include<reg51.h>
+#include"delay.c"
+void main()
+{
+unsigned int j;
+while(1)
+{
+Output:
+for(j=0;j<8;j++){
+P0=0x80>>j;
+delay(50000);}
+Pattern 5:Displaying BCD numbers 0 to 9
+#include<reg51.h>
+#include"delay.c"
+void main()
+{
+unsigned int i;
+while(1)
+{ P0=0x00;
+delay(50000);
+for(i=0x01;i<=0x09;i++){
+P0=i;
+delay(50000);
+}}}

@@ -1,0 +1,63 @@
+Square waveform - 
+#include <reg51.h> 
+void delay(unsigned int time) 
+{ 
+ int i; 
+ for(i=0;i<time;i++); 
+} 
+void main() 
+{ while(1) 
+{ 
+P1=0XFF; 
+delay(200); 
+P1=0X00; 
+delay(200); 
+} 
+}
+2. Triangle waveform –
+#include<reg51.h>
+void main()
+{
+ unsigned int i=0;
+ while(1)
+ {
+ for(i=0;i<255;i++)
+ {
+ P1=i;
+ }
+ for(i=255;i>0;i--)
+{ P1=i;}
+ } }
+3. Ramp waveform –
+#include<reg51.h>
+void main()
+{
+ unsigned int i=0;
+ while(1)
+ {
+ for(i=0;i<255;i++)
+ {
+ P1=i;
+ }
+ }
+}
+Staircase waveform –
+#include <reg51.h>
+void delay(unsigned int time)
+{
+int i;
+for(i=0;i<time;i++);
+}
+void main()
+{
+ int j;
+while(1)
+{
+ for(j=0;j<=5;j++){
+P1=0x33*j;
+delay(10000);
+ }
+for(j=5;j>=0;j--){
+P1=0x33*j;
+delay(10000);
+} } }

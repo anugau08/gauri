@@ -1,38 +1,57 @@
-#include <reg51.h> //inc 
-#include "delay.c" 
-sbit rs=P3^2; //port 3 pin 2 assigning to register select pin sbit en- P3^3; //port 3 pin 3 assigning to enable pin //hardwired by manufacturer 
-void command(unsigned int com) 
-{ 
-PO=0x00; //port pin set 
-rs=0; //rs is selected to 0 meaning 
-PO=com; 
-en=1; //enable set to 1 
-en=0; 
+#include<reg51.h> 
+sbit rs=P3^2; 
+sbit en=P3^3; 
+void lcd_delay(unsigned int time){ 
+int i,j; 
+for(i=0;i<275;i++) 
+for(j=0;j<time;j++); 
 } 
-delay(1000); //delay function called with parameter of 1000 
-void data1(char a) 
-{ 
-PO=0x00; 
-rs=1; 
-PO=a; 
+void lcd_cmd(unsigned int command){ 
+rs=0; 
+P0=command; 
 en=1; 
+lcd_delay(40); 
 en=0; 
 } 
-delay(1000); //delay function called with parameter of 1000 
-delay(1000); //delay function called with parameter of 1000 
-void main() 
-{ 
-char a[100]=("Ami and Ishita"); 
-int i=0; 
-command(0x01);// clear screen display 
-delay(1000); //delay function called with parameter of 1000 
+void lcd_data(unsigned int dataa) 
+{ rs=1; 
+ P0=dataa; 
+ en=1; 
+ lcd_delay(40); 
+ en=0; 
 } 
-command(0x0E);// initialize dot matrix 
-delay(1000); //delay function called with parameter of 1000 
-command(0x38); // fxn set 8 bit 2 line 
-delay(1000); //delay function called with parameter of 1000 
-command(0x80); // rst row cursor begins 
-delay(1000); //delay function called with parameter of 1000 command(0x14); //increment right 
-delay(1000); //delay function called with parameter of 1000 
-while(a[i]!= '\0') 
-Boo 
+void lcd_init(void){ 
+rs=0; 
+en=0; 
+P0=0; 
+lcd_cmd(0x38); 
+lcd_delay(40); 
+lcd_cmd(0x0C);
+lcd_delay(40);
+lcd_cmd(0x06);
+lcd_delay(40);
+lcd_cmd(0x01);
+lcd_delay(40);
+lcd_cmd(0x80);
+lcd_delay(40);
+}
+void display_string(unsigned char *ptr)
+{
+unsigned char i=0;
+while (ptr[i]!='\0')
+{ lcd_data(ptr[i]);
+ lcd_delay(1);
+i++;
+}
+}
+void main(){
+unsigned char msg1[]="renu",msg2[]="awatade";
+lcd_init();
+lcd_cmd(0x80);
+display_string(msg1);
+lcd_delay(40);
+lcd_cmd(0x88);
+display_string(msg2);
+lcd_delay(40);
+}
+}

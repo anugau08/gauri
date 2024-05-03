@@ -1,0 +1,16 @@
+#include<reg51.h> 
+Void delay(){ TMOD=0x01; 
+TLO=0X00; 
+THO=0X00; 
+TRO=1; 
+while(TFO==0) 
+TRO=0; 
+TFO=0; 
+} 
+Void main(){ 
+while(1){ 
+PO=0x55; 
+delay(); 
+PO=0xAA; 
+delay(); 
+} 

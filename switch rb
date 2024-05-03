@@ -1,0 +1,36 @@
+#include<reg51.h>
+sbit sw4=P0^0; //port 0 is for buzzer
+sbit sw5=P0^1;
+sbit relay=P0^4;
+sbit buzzer=P0^5;
+void delay(unsigned char time)
+{
+unsigned char i,j;
+for(i=0;i<time;i++)
+{
+for(j=0;j<200;j++);
+}
+}
+void main()
+{
+sw4=1; // sw4 and sw5 are inputs; port 1 is for led and relay.
+sw5=1;
+while(sw4==0)
+{
+relay=0;
+P1=0xFF;
+delay(1000);
+relay=1;
+P1=0xCC;
+delay(1000);
+}
+while(sw5==0)
+{
+buzzer=0;
+P1=0xAA;
+delay(1000);
+buzzer=1;
+P1=0x00;
+delay(1000);
+
+}

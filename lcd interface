@@ -1,0 +1,38 @@
+#include <reg51.h> //inc 
+#include "delay.c" 
+sbit rs=P3^2; //port 3 pin 2 assigning to register select pin sbit en- P3^3; //port 3 pin 3 assigning to enable pin //hardwired by manufacturer 
+void command(unsigned int com) 
+{ 
+PO=0x00; //port pin set 
+rs=0; //rs is selected to 0 meaning 
+PO=com; 
+en=1; //enable set to 1 
+en=0; 
+} 
+delay(1000); //delay function called with parameter of 1000 
+void data1(char a) 
+{ 
+PO=0x00; 
+rs=1; 
+PO=a; 
+en=1; 
+en=0; 
+} 
+delay(1000); //delay function called with parameter of 1000 
+delay(1000); //delay function called with parameter of 1000 
+void main() 
+{ 
+char a[100]=("Ami and Ishita"); 
+int i=0; 
+command(0x01);// clear screen display 
+delay(1000); //delay function called with parameter of 1000 
+} 
+command(0x0E);// initialize dot matrix 
+delay(1000); //delay function called with parameter of 1000 
+command(0x38); // fxn set 8 bit 2 line 
+delay(1000); //delay function called with parameter of 1000 
+command(0x80); // rst row cursor begins 
+delay(1000); //delay function called with parameter of 1000 command(0x14); //increment right 
+delay(1000); //delay function called with parameter of 1000 
+while(a[i]!= '\0') 
+Boo 
